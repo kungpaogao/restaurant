@@ -1,58 +1,50 @@
 package org.andrewgao.restaurant.android
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.Collections
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Restaurant
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.tooling.preview.Preview
-import org.andrewgao.restaurant.Greeting
-import org.andrewgao.restaurant.android.designsystem.AppTheme
+import androidx.core.view.WindowCompat
+import org.andrewgao.restaurant.android.designsystem.DsTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            var selectedItem by remember { mutableStateOf(0) }
+            var selectedItemIndex by remember { mutableStateOf(0) }
             val items = listOf(
-                NavigationItem("Eat", Icons.Filled.Restaurant),
-                NavigationItem("To do", Icons.Filled.Checklist),
+                NavigationItem("Ate", Icons.Filled.Restaurant),
+                NavigationItem("To go", Icons.Filled.Checklist),
                 NavigationItem("Gallery", Icons.Filled.Collections),
                 NavigationItem("Profile", Icons.Filled.Person),
             )
 
-            AppTheme {
-                MainLayout(
-                    selectedNavigationItemIndex = selectedItem,
+            DsTheme(useDarkTheme = true) {
+                MainScaffold(
+                    selectedNavigationItemIndex = selectedItemIndex,
                     navigationItems = items,
-                    onNavigationItemClick = { selectedItem = it },
-                    onActionClick = {},
+                    onNavigationItemClick = { selectedItemIndex = it },
+                    onActionClick = {
+
+                    },
                 ) {
-                    GreetingView(Greeting().greet())
+                    when (selectedItemIndex) {
+                        0 -> Home()
+                        1 -> ToGo()
+                        2 -> Gallery()
+                        3 -> Profile()
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    AppTheme {
-        GreetingView("Hello, Android!")
     }
 }
