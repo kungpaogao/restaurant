@@ -22,9 +22,9 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.android.material.datepicker.MaterialDatePicker
-import org.andrewgao.restaurant.android.designsystem.DsSpacerColumn
-import org.andrewgao.restaurant.android.designsystem.DsStarRating
 import org.andrewgao.restaurant.android.designsystem.DsTheme
+import org.andrewgao.restaurant.android.designsystem.components.DsSpacerColumn
+import org.andrewgao.restaurant.android.designsystem.components.DsStarRating
 
 private fun showDatePicker(
     activity: AppCompatActivity,

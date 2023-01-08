@@ -1,4 +1,4 @@
-package org.andrewgao.restaurant.android.designsystem
+package org.andrewgao.restaurant.android.designsystem.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size

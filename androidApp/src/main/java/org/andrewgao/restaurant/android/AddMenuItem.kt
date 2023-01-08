@@ -1,10 +1,7 @@
 package org.andrewgao.restaurant.android
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
@@ -13,11 +10,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import org.andrewgao.restaurant.android.designsystem.DsSpacerColumn
-import org.andrewgao.restaurant.android.designsystem.DsStarRating
 import org.andrewgao.restaurant.android.designsystem.DsTheme
+import org.andrewgao.restaurant.android.designsystem.components.DsSpacerColumn
+import org.andrewgao.restaurant.android.designsystem.components.DsStarRating
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
